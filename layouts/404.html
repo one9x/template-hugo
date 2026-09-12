@@ -1,8 +1,15 @@
 {{ define "main" }}
+<div class="wrap">
+  <p class="eyebrow">One9x Pages &middot; template</p>
   <h1>404</h1>
-  <p>
-    Nothing here. Served by the <code>--error 404:/404.html</code> mapping in the
-    deploy workflow.
+  <p class="lede">
+    Nothing here. This page is served by the <code>--error 404:/404.html</code>
+    mapping in the deploy workflow.
   </p>
-  <p><a href="/">Home</a></p>
+  <div class="row"><a class="btn btn-2" href="/">Back</a></div>
+  <footer>
+    Hosted on <a href="https://one9x.com">One9x Pages</a> &middot;
+    <a href="https://one9x.com/docs/frameworks/hugo">Hugo guide</a>
+  </footer>
+</div>
 {{ end }}

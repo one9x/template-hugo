@@ -1,4 +1,12 @@
-public/
-resources/
+# Build output. No trailing slashes — see the note in the other templates: a
+# trailing slash matches a directory and not a symlink of the same name.
+public
+resources
 .hugo_build.lock
+
+# Local
 .DS_Store
+*.log
+.env
+.env.*
+!.env.example

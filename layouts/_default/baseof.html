@@ -5,21 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
     <style>
-:root { color-scheme: light dark; }
-body {
-  margin: 0;
-  font: 16px/1.6 ui-sans-serif, system-ui, sans-serif;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --paper:#F5F2ED; --card:#FAF9F7; --ink:#0F1524; --ink-500:#33405C;
+  --wire:#5B6B8C; --line:#D7D5D3; --cite:#D45C3C; --cite-ink:#BD492A;
 }
-main { max-width: 34rem; padding: 2rem 1.5rem; }
-h1 { font-size: 2rem; margin: 0 0 0.5rem; }
-.note { opacity: 0.7; font-size: 0.9rem; }
-code { font-family: ui-monospace, monospace; }
+@media (prefers-color-scheme: dark){
+  :root{--paper:#0F1524;--card:#111A2E;--ink:#F5F2ED;--ink-500:#C8D0E0;
+        --wire:#8494B4;--line:#1B2740;--cite-ink:#E8846A}
+}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:clamp(2.5rem,8vw,5rem) 1.25rem 4rem}
+.eyebrow{font:500 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--wire)}
+h1{font-size:clamp(2rem,6vw,2.75rem);line-height:1.05;letter-spacing:-.02em;
+  margin:.75rem 0 0;text-wrap:balance}
+h1 .thin{color:var(--wire);font-weight:400}
+.lede{font-size:1.125rem;color:var(--ink-500);margin:1rem 0 0;max-width:34rem}
+h2{font-size:.95rem;letter-spacing:-.01em;margin:2.75rem 0 .75rem}
+ol{margin:0;padding-left:1.25rem;color:var(--ink-500)}
+ol li{margin:.6rem 0}
+pre{background:var(--ink);color:#E6EAF2;border-radius:10px;padding:1rem 1.1rem;
+  overflow-x:auto;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;margin:.75rem 0 0}
+@media (prefers-color-scheme: dark){pre{background:#080C16}}
+pre .p{color:#16C48E;user-select:none}
+code{font:.9em ui-monospace,SFMono-Regular,Menlo,monospace}
+p code,li code{background:var(--card);border:1px solid var(--line);
+  border-radius:4px;padding:.1em .35em}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.75rem}
+.btn{display:inline-flex;align-items:center;gap:.45rem;border-radius:999px;
+  padding:.6rem 1.15rem;font-size:.9rem;font-weight:600;text-decoration:none;
+  border:1px solid transparent}
+.btn-1{background:var(--cite);color:#0F1524}
+.btn-1:hover{background:#DC6B4C}
+.btn-2{border-color:var(--line);color:var(--ink)}
+.btn-2:hover{background:var(--card)}
+.facts{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.9rem}
+.facts th,.facts td{text-align:left;padding:.5rem .75rem .5rem 0;
+  border-bottom:1px solid var(--line);vertical-align:top}
+.facts th{font-weight:600;white-space:nowrap;width:10.5rem}
+.facts td{color:var(--ink-500)}
+nav.local{margin-top:2rem;font-size:.9rem}
+nav.local a{color:var(--cite-ink)}
+footer{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--line);
+  font-size:.85rem;color:var(--wire)}
+footer a{color:var(--cite-ink)}
+a{color:var(--cite-ink);text-underline-offset:3px}
     </style>
   </head>
   <body>
-    <main>{{ block "main" . }}{{ end }}</main>
+    {{ block "main" . }}{{ end }}
   </body>
 </html>
