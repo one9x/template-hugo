@@ -1,0 +1,7 @@
+baseURL = "https://example.one9x.app/"
+languageCode = "en-us"
+title = "Hugo on One9x Pages"
+
+# baseURL is baked into canonical tags, feeds and sitemaps. A wrong value here
+# is the mistake that costs you: the site looks correct and the feed points
+# somewhere else. Change it to the host you serve from.
